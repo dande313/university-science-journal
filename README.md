@@ -1,9 +1,9 @@
-# Facebookmash
+# Viking Coding School, project 2.24, Facebook Teardown and Mockup
 https://webdevwithpurpose.wordpress.com/2017/04/01/facebook-teardown/
 https://webdevwithpurpose.wordpress.com/2017/04/01/facebook-mockups/
 
 
-#Facebook Teardown
+# Facebook Teardown
 
 For the final project in the Viking Coding School course “Web Design Basics”, I will be utilizing all I have learned over the course to deconstruct Facebook.  This will be a bit longer, and more in-depth than my previous posts. Let’s begin.
 
