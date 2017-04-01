@@ -1,7 +1,11 @@
 # Viking Coding School, project 2.24, Facebook Teardown and Mockup
+
+Fancy format blog solutions:
 https://webdevwithpurpose.wordpress.com/2017/04/01/facebook-teardown/
 https://webdevwithpurpose.wordpress.com/2017/04/01/facebook-mockups/
 
+
+Boring Plain-text solutions (I might fix you later)
 
 # Facebook Teardown
 
