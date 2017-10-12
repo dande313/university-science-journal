@@ -10,7 +10,7 @@
 
   <p><%= @article.description %></p>
   <p><a href="<%= @article.link %>">URL Link</a></p>
-  <p>Submitted by <%= @article.user.username %> </p>
+  <p>Submitted by <%= @article.user.name %> </p>
 
 <% if (current_user.professor? && current_user.department == @article.user.department) || @article.user == current_user %>
   <p><%= button_to "Edit", { action: "edit", id: @article.id }, method: :get, form: {style: 'display:inline-block;'} %>

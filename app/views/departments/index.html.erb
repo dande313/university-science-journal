@@ -1,5 +1,4 @@
 <h1>University Scientific Articles</h1>
-<p><a href="/articles/new" class="btn btn-primary">Submit Article</a></p><br>
 
 <% @articles.each do |article| %>
 	<% if article.user.department == current_user.department %> 

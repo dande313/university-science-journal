@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   root "home#index"
   get '/articles/:id/destroy', to: 'articles#destroy'
+  get '/department/:id', to: 'departments#show'
 end
