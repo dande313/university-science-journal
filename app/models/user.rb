@@ -7,6 +7,7 @@ class User < ApplicationRecord
   attr_accessor :login
   validate :validate_username
   validates :email, uniqueness: true
+  validate :name
 
   belongs_to :department
   has_many :articles

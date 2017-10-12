@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 
+  before_action :update_records
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,6 +15,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    if current_user != @article.user && !(current_user.professor && current_user.department == @article.user.department)
+      redirect_to "/"
+    end
   end
 
   def create
@@ -52,5 +56,13 @@ class ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit(:name, :description, :link, :user_id)
+    end
+
+    def update_records
+    	Article.all.each do |article|
+    		if !article.user
+    		article.delete
+    		end
+    	end
     end
 end

@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Department.create ([{ name: 'Astronomy' }, { name: 'Biology' }, { name: 'Chemistry' }, { name: 'Geology' }, { name: 'Psychology' }])
+User.create ([{ username: 'Einstine', email:'al@smarterthanyou.net', password: 'abc123', password_confirmation: 'abc123', department_id: 1, professor: true}, ])
+
+
