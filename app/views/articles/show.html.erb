@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+<div class="card">
+  <h1><%= @article.name %></h1>
+  <h3>University <%=@article.user.department.name %> Department</h3>
+
+  <p><%= @article.description %></p>
+  <p><a href="<%= @article.link %>">URL Link</a></p>
+  <p>Submitted by <%= @article.user.username %> </p>
+
+  <p><%= button_to "Edit", { action: "edit", id: @article.id }, form: {style: 'display:inline-block;'} %>
+  <%= button_to "Delete", { action: "destroy", id: @article.id }, method: :delete, data: { confirm: 'Are you sure?'}, form: {style: 'display:inline-block;'} %></p>
+</div>

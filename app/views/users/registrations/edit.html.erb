@@ -4,13 +4,13 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :department_id %><br />
-      <%= f.select :department_id, options_for_select([['Astronomy', 1], ['Biology', 2], ['Chemistry', 3], ['Geology', 4], ['Psychology', 5]]) %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.label :department_id %><br />
+      <%= f.select :department_id, options_for_select([['Astronomy', 1], ['Biology', 2], ['Chemistry', 3], ['Geology', 4], ['Psychology', 5]]) %>
     </div>
 
     <div class="field">
