@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+<div class="card">
+  <h1><%= @article.name %></h1>
+  <h3>University <%=@article.user.department.name %> Department</h3>
+  <p>Topics: <% @article.topics.each do |topic| %>--<%= topic.name %> <% end %> </p>
+  <p><%= @article.description %></p>
+  <p><a href="<%= @article.link %>">URL Link</a></p>
+  <p>Submitted by <%= @article.user.name %> </p><br>
+
+<% if can_edit?%>
+  <p><%= button_to "Edit", { action: "edit", id: @article.id }, method: :get, form: {style: 'display:inline-block;'} %>
+  <%= button_to "Delete", { action: "destroy", id: @article.id }, method: :delete, data: { confirm: 'Are you sure?'}, form: {style: 'display:inline-block;'} %></p>
+<% end %>
+</div>

@@ -1,0 +1,8 @@
+<% if !!current_user %>
+	<h3>Welcome <%= current_user.name %></h3>
+	<p>You are registered with the <%= current_user.department.name %> department</p>
+	<% if current_user.professor %>
+		<p>You are a Professor</p>
+	<% end %>
+	
+<% end %>

@@ -1,0 +1,52 @@
+<h2>Edit <%=current_user.username%></h2>
+<div class="user_form">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, placeholder: current_user.name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :department_id %><br />
+      <%= f.select :department_id, options_for_select([['Astronomy', 1], ['Biology', 2], ['Chemistry', 3], ['Geology', 4], ['Psychology', 5]], current_user.department_id) %>
+    </div> 
+
+    <div class="field">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Professor?" %> <br />
+      <%= f.check_box :professor %> <br />
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
+
+  <% end %>
+</div>
+  <p><%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "This action will delete all associated articles. Are you sure? " }, method: :delete %></p>
+
+

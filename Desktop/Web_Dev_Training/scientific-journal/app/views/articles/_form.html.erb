@@ -1,0 +1,31 @@
+<%= form_for(@article) do |f| %>
+
+  <div class="field"> <%= f.label :name %><br>
+  <%= f.text_field :name %></div>
+
+  <div class="field"><%= f.label :description %><br>
+  <%= f.text_area :description %></div>
+
+  <div class="field"><%= f.label :link %><br>
+  <%= f.text_field :link %></div>
+
+  <% if !@article.user_id %>
+    <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+  <% end %>
+
+  <br><br>
+  <div class="field">
+  <strong>Topics</strong> <br>
+  <%= f.collection_check_boxes :topic_ids, @topics, :id, :name %><br>
+  <%= f.fields_for :topics, @article.topics.build do |topic_fields| %>
+    <%= topic_fields.label "New Topic:" %><%= topic_fields.text_field :name %>
+    <%= topic_fields.hidden_field :department_id, :value => current_user.department.id %>
+  <% end %>
+
+
+  <br><br>
+  <div class="actions"><%= f.submit 'Submit', :class => 'btn btn-primary' %></div>
+
+<% end %>

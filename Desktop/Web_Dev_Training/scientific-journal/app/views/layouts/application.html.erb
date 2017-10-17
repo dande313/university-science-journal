@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>University Research</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+    div.header {
+      margin: 0;
+      padding: 10px;
+      background-color: #3381E1;
+      color: #EFF2F5;
+      font-size: 32px;
+    }
+
+    div.nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    div.nav li {
+      float: left;
+    }
+
+    div.nav li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav li a:hover {
+      background-color: #111;
+    }
+
+    div.content {
+     margin: 25px 30px;
+    }
+
+    div.user_form input:not([type=submit]):not([type=checkbox]), select {
+      width: 100%;
+      padding: 10px 15px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    div.user_form input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    div.user_form input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div.user_form {
+        width: 20%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .dropdown {
+    float: left;
+    overflow: hidden;
+    }
+
+    .dropdown .dropbtn {   
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: #111;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        background-color: #444;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    </style>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+
+  <body>
+    <div class="header">
+      University Research
+    </div>
+    <div class="nav">
+      <ul>
+        <% if !current_user %>
+        	<li><%= link_to("Sign Up", new_user_registration_path) %></li>
+          <li><%= link_to("Log In", new_user_session_path) %></li>
+          <li><%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %></li>
+        <% else %>
+           <li><%= link_to("University Articles", articles_path) %></li>
+           <li><div class="dropdown">
+              <div class="dropbtn">Departments 
+              </div>
+              <div class="dropdown-content">
+                <%= link_to("Astronomy", "/department/1") %>
+                <%= link_to("Biology", "/department/2") %>
+                <%= link_to("Chemistry", "/department/3") %>
+                <%= link_to("Geology", "/department/4") %>
+                <%= link_to("Psychology", "/department/5") %>
+              </div>
+            </div></li>
+            <li><a href="/articles/new" class="btn btn-primary">Submit Article</a></li>
+           <li><%= link_to("User Settings", edit_user_registration_path) %></li>
+      	   <li><%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="content">  
+      <%= yield %>
+    </div>
+  </body>
+</html>

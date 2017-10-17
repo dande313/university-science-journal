@@ -1,0 +1,13 @@
+<h1>University Scientific Articles</h1>
+
+<% @articles.each do |article| %>
+	<% if article.user.department == current_user.department %> 
+	  <div>
+	  	<h4><%= article.name %></h4>
+	  	<p><%= article.user.department.name %> Department</a></p>
+	  	<p><a href="/articles/<%= article.id %>">View</a></p>
+
+	    -----------------------------------------------------------------------------------------------
+	  </div>
+	<% end %>
+<% end %>
